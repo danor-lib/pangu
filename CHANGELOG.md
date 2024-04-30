@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v5.1.4 - 2024.04.30 11
+* util `dir`: Fixed logic bug when replacing `<entry>` where `process.argv[1]` was a directory 
+* bump up dependencies
+
+
 ## v5.1.3 - 2024.03.06 01
 * improve the logic of exporting utils
   * to ensure that utils initialised by other utils can also be exported

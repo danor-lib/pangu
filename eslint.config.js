@@ -24,6 +24,7 @@ const rulesBase = {
 	noVar: [1],
 	noConsole: [1],
 	requireAtomicUpdates: [1, { allowProperties: true }],
+	noConstantBinaryExpression: [0],
 };
 
 
