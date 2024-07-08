@@ -111,11 +111,7 @@ parseParamString(import.meta.url);
 // parseParamString(paramsStringCLI);
 
 
-/**
- * @typedef {Object} I18NResult
- * @property {string} locale ""zh;zh-cn""
- * @property {string} foramt `"hades"`
- */
+/** @typedef {import('./bases.d.ts').I18NResult} I18NResult */
 
 
 const exportUtil = (util, launcher) => {
@@ -169,7 +165,7 @@ const parseLocalesSystem = () => {
 };
 
 
-const initI18NUtil = (launcher, environment, $pangu) => {
+const initI18NUtil = (launcher, environment) => {
 	const localeSystem = parseLocalesSystem();
 
 
@@ -282,7 +278,7 @@ for(const launcher of Object.values(launchers$name).sort(({ util: a }, { util: b
 	if(!util) {
 		promisesWait.push(
 			utils$name[launcher.name] = initUtil(launcher, environment)
-				.then(util => utils$name[launcher.name] = util)
+				.then(utilWaited => utils$name[launcher.name] = utilWaited)
 		);
 	}
 	else if(util instanceof Promise) {
@@ -323,7 +319,7 @@ const logs$alias = utilsExport.logs$alias;
 
 /** @type {typeof globalThis.process} */
 const processDefault = utilsExport.processDefault;
-/** @type {import('dayjs').Dayjs} */
+/** @type {import('dayjs')} */
 const DayDefault = utilsExport.DayDefault;
 /** @type {import('@nuogz/poseidon').PoseidonInterface} */
 const PoseidonDefault = utilsExport.PoseidonDefault;

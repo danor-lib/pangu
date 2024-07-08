@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v5.2.0 - 2024.07.08 14
+* fix: fix declaration export wrong type with util `Day`
+* style: use new declaration struct
+* style: tweak some code styles
+* chore: improve the usage declare codes
+* chore: use `tsconfig.json` instead of `jsconfig.json`
+* chore: use `@nuogz/common-eslint-config` eslint config
+* chore: update pacakge.json
+* chore: bump up dependencies
+
+
 ## v5.1.4 - 2024.04.30 11
 * util `dir`: Fixed logic bug when replacing `<entry>` where `process.argv[1]` was a directory 
 * bump up dependencies
