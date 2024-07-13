@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.2.1 - 2024.07.13 16
+* chore: bump up dependencies
+
+
 ## v5.2.0 - 2024.07.08 14
 * fix: fix declaration export wrong type with util `Day`
 * style: use new declaration struct
