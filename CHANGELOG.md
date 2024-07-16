@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.3.1 - 2024.07.16 16
+* chore: bump up `@nuogz/hades` to `6.3.1`
+
+
 ## v5.3.0 - 2024.07.16 14
 * chore!: bump up `@nuogz/hades` to `6.3.0`
 
