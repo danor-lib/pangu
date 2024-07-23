@@ -103,6 +103,7 @@ const parseParamString = string => {
 		if(!keyParamNamed.trim() && !optional) { launcher.enabled = true; }
 
 		launcher.params[keyParamNamed.trim() || 'default'] = splitEscape(paramsRaw, ',');
+		launcher.params[keyParamNamed.trim() || 'default'].raw = paramsRaw;
 	}
 };
 
@@ -174,7 +175,7 @@ const initI18NUtil = (launcher, environment) => {
 		launcher.params.default?.[0] ||
 		localeSystem;
 
-	const format = launcher.params.format?.[0] ||
+	const format = launcher.params.format?.raw ||
 		launcher.params.default?.[1] ||
 		'hades';
 
@@ -183,8 +184,7 @@ const initI18NUtil = (launcher, environment) => {
 	environment.format = format;
 
 
-	process.env.NENV_I18N_LOCALE = locale;
-	process.env.NENV_I18N_FORMAT = format;
+	process.env.NENV_I18N = `locale=${locale}&format=${format}`;
 
 
 	return { locale, format };

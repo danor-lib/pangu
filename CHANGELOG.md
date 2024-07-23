@@ -1,26 +1,34 @@
 # CHANGELOG
 
+## v5.4.0 - 2024.07.23 10
+* feat(log): support for passing all the latest options to `@nuogz/hades`
+* deps(log)!: bump up `@nuogz/hades` to `7.0.0.`
+* refactor(i18n): update codes according to break changes in latest version of `@nuogz/i18n`
+* deps: bump up dependencies
+* refactor: the unsplited raw params will be set into `launcher.params[key].raw`
+
+
 ## v5.3.1 - 2024.07.16 16
-* chore: bump up `@nuogz/hades` to `6.3.1`
+* deps: bump up `@nuogz/hades` to `6.3.1`
 
 
 ## v5.3.0 - 2024.07.16 14
-* chore!: bump up `@nuogz/hades` to `6.3.0`
+* deps!: bump up `@nuogz/hades` to `6.3.0`
 
 
 ## v5.2.1 - 2024.07.13 16
-* chore: bump up dependencies
+* deps: bump up dependencies
 
 
 ## v5.2.0 - 2024.07.08 14
 * fix: fix declaration export wrong type with util `Day`
 * style: use new declaration struct
 * style: tweak some code styles
-* chore: improve the usage declare codes
+* docs: improve the usage declare codes
 * chore: use `tsconfig.json` instead of `jsconfig.json`
 * chore: use `@nuogz/common-eslint-config` eslint config
-* chore: update pacakge.json
-* chore: bump up dependencies
+* chore: update `pacakge.json`
+* deps: bump up dependencies
 
 
 ## v5.1.4 - 2024.04.30 11

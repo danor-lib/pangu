@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@nuogz/hades':
-        specifier: ^6.3.1
-        version: 6.3.1(@nuogz/json-bigint@1.3.1)
+        specifier: ^7.0.0
+        version: 7.0.0(@nuogz/json-bigint@1.3.1)
       '@nuogz/json-bigint':
         specifier: ^1.3.1
         version: 1.3.1
@@ -24,8 +24,8 @@ importers:
         specifier: ^12.1.0
         version: 12.1.0
       dayjs:
-        specifier: ^1.11.11
-        version: 1.11.11
+        specifier: ^1.11.12
+        version: 1.11.12
     devDependencies:
       '@eslint/js':
         specifier: ^9.7.0
@@ -34,8 +34,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(eslint@9.7.0)
       '@types/node':
-        specifier: ^20.14.10
-        version: 20.14.10
+        specifier: ^20.14.11
+        version: 20.14.11
       eslint:
         specifier: ^9.7.0
         version: 9.7.0
@@ -43,8 +43,8 @@ importers:
         specifier: ^15.8.0
         version: 15.8.0
       typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
+        specifier: ^5.5.4
+        version: 5.5.4
 
 packages:
 
@@ -62,8 +62,8 @@ packages:
     resolution: {integrity: sha512-G/M/tIiMrTAxEWRfLfQJMmGNX28IxBg4PBz8XqQhqUHLFI6TL2htpIB1iQCj144V5ee/JaKyT9/WZ0MGZWfA7A==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/config-array@0.17.0':
-    resolution: {integrity: sha512-A68TBu6/1mHHuc5YJL0U0VVeGNiklLAL6rRmhTCP2B5XjWLMnrX+HkO+IAXyHvks5cyyY1jjK5ITPQ1HGS2EVA==}
+  '@eslint/config-array@0.17.1':
+    resolution: {integrity: sha512-BlYOpej8AQ8Ev9xVqroV7a02JK3SkBAaN9GfMMH9W6Ch8FlQlkjGw4Ir7+FgYwfirivAf4t+GtzuAxqfukmISA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.1.0':
@@ -98,12 +98,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nuogz/hades@6.3.1':
-    resolution: {integrity: sha512-1pnkl/aI0BVnJYAju3UGPlBLsLdhSfk5uCveZpbgFnJ/s8uSYPQpHmN6i05wEumrxqvzTU7hfUa2+Tv77xDNrA==}
+  '@nuogz/hades@7.0.0':
+    resolution: {integrity: sha512-y0ZP3YcsE8rGxNZH4tv2VRxv+8nQbU32aP83KOzpovOk4AlbKPRZsxq8ErWUSPngeAtWYCjuZgsgk5AMWavVTA==}
     engines: {node: '>=20'}
 
-  '@nuogz/i18n@3.5.0':
-    resolution: {integrity: sha512-jRbZ6vz2e8/m77sk9vqSGm0n/oXa4CqtSmFplqnrl86jHjTCKAtSOtgXEwyzXt5KiVT4EhnKXmmAxNv1VLZnYw==}
+  '@nuogz/i18n@3.6.0':
+    resolution: {integrity: sha512-PYONeSMGrZbkyX1LHMURGdoG4Y/1rxQIWoyL8bSx05C0CdJce7868Rl0Riq8HVHTOWUa/K6qdBNefu0Gn6wGNQ==}
     engines: {node: '>=20'}
 
   '@nuogz/json-bigint@1.3.1':
@@ -126,8 +126,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@types/eslint@8.56.10':
-    resolution: {integrity: sha512-Shavhk87gCtY2fhXDctcfS3e6FdxWkCx1iUZ9eEUbh7rTqlZT0/IzOkCOVt0fCjcFuZ9FPYfuezTBImfHCDBGQ==}
+  '@types/eslint@8.56.11':
+    resolution: {integrity: sha512-sVBpJMf7UPo/wGecYOpk2aQya2VUGeHhe38WG7/mN5FufNSubf5VT9Uh9Uyp8/eLJpu1/tuhJ/qTo4mhSB4V4Q==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -135,8 +135,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@20.14.10':
-    resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
+  '@types/node@20.14.11':
+    resolution: {integrity: sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -218,8 +218,8 @@ packages:
     resolution: {integrity: sha512-39BOQLs9ZjKh0/patS9nrT8wc3ioX3/eA/zgbKNopnF2wCqJEoxywwwElATYvRsXdnOxA/OQeQoFZ3rFjVajhg==}
     engines: {node: '>=4.0'}
 
-  dayjs@1.11.11:
-    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
+  dayjs@1.11.12:
+    resolution: {integrity: sha512-Rt2g+nTbLlDWZTwwrIXjy9MeiZmSDI375FvZs72ngxx8PDC6YXOeR3q5LAuPzjZQxhiWdRKac7RKV+YyQYfYIg==}
 
   debug@4.3.5:
     resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
@@ -335,8 +335,8 @@ packages:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
 
-  i18next@23.12.1:
-    resolution: {integrity: sha512-l4y291ZGRgUhKuqVSiqyuU2DDzxKStlIWSaoNBR4grYmh0X+pRYbFpTMs3CnJ5ECKbOI8sQcJ3PbTUfLgPRaMA==}
+  i18next@23.12.2:
+    resolution: {integrity: sha512-XIeh5V+bi8SJSWGL3jqbTEBW5oD6rbP5L+E7dVQh1MNTxxYef0x15rhJVcRb7oiuq4jLtgy2SD8eFlf6P2cmqg==}
 
   ignore@5.3.1:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
@@ -526,8 +526,8 @@ packages:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
 
-  typescript@5.5.3:
-    resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -571,7 +571,7 @@ snapshots:
 
   '@eslint-community/regexpp@4.11.0': {}
 
-  '@eslint/config-array@0.17.0':
+  '@eslint/config-array@0.17.1':
     dependencies:
       '@eslint/object-schema': 2.1.4
       debug: 4.3.5
@@ -613,12 +613,12 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@nuogz/hades@6.3.1(@nuogz/json-bigint@1.3.1)':
+  '@nuogz/hades@7.0.0(@nuogz/json-bigint@1.3.1)':
     dependencies:
-      '@nuogz/i18n': 3.5.0
+      '@nuogz/i18n': 3.6.0
       '@nuogz/utility': 1.8.1(@nuogz/json-bigint@1.3.1)
       chalk: 5.3.0
-      dayjs: 1.11.11
+      dayjs: 1.11.12
       log-update: 6.0.0
       log4js: 6.9.1
       streamroller: 3.1.5
@@ -626,19 +626,19 @@ snapshots:
       - '@nuogz/json-bigint'
       - supports-color
 
-  '@nuogz/i18n@3.5.0':
+  '@nuogz/i18n@3.6.0':
     dependencies:
-      i18next: 23.12.1
+      i18next: 23.12.2
 
   '@nuogz/json-bigint@1.3.1':
     dependencies:
-      '@nuogz/i18n': 3.5.0
+      '@nuogz/i18n': 3.6.0
 
   '@nuogz/poseidon@8.2.0':
     dependencies:
-      '@nuogz/i18n': 3.5.0
+      '@nuogz/i18n': 3.6.0
       escape-string-regexp: 5.0.0
-      typescript: 5.5.3
+      typescript: 5.5.4
 
   '@nuogz/utility@1.8.1(@nuogz/json-bigint@1.3.1)':
     dependencies:
@@ -646,13 +646,13 @@ snapshots:
 
   '@stylistic/eslint-plugin-js@2.3.0(eslint@9.7.0)':
     dependencies:
-      '@types/eslint': 8.56.10
+      '@types/eslint': 8.56.11
       acorn: 8.12.1
       eslint: 9.7.0
       eslint-visitor-keys: 4.0.0
       espree: 10.1.0
 
-  '@types/eslint@8.56.10':
+  '@types/eslint@8.56.11':
     dependencies:
       '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
@@ -661,7 +661,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@20.14.10':
+  '@types/node@20.14.11':
     dependencies:
       undici-types: 5.26.5
 
@@ -730,7 +730,7 @@ snapshots:
 
   date-format@4.0.14: {}
 
-  dayjs@1.11.11: {}
+  dayjs@1.11.12: {}
 
   debug@4.3.5:
     dependencies:
@@ -757,7 +757,7 @@ snapshots:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.7.0)
       '@eslint-community/regexpp': 4.11.0
-      '@eslint/config-array': 0.17.0
+      '@eslint/config-array': 0.17.1
       '@eslint/eslintrc': 3.1.0
       '@eslint/js': 9.7.0
       '@humanwhocodes/module-importer': 1.0.1
@@ -856,7 +856,7 @@ snapshots:
 
   has-flag@4.0.0: {}
 
-  i18next@23.12.1:
+  i18next@23.12.2:
     dependencies:
       '@babel/runtime': 7.24.8
 
@@ -1039,7 +1039,7 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
 
-  typescript@5.5.3: {}
+  typescript@5.5.4: {}
 
   undici-types@5.26.5: {}
 
