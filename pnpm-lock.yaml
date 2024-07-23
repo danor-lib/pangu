@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@nuogz/hades':
-        specifier: ^7.0.0
-        version: 7.0.0(@nuogz/json-bigint@1.3.1)
+        specifier: ^7.0.2
+        version: 7.0.2(@nuogz/json-bigint@1.3.1)
       '@nuogz/json-bigint':
         specifier: ^1.3.1
         version: 1.3.1
@@ -98,12 +98,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nuogz/hades@7.0.0':
-    resolution: {integrity: sha512-y0ZP3YcsE8rGxNZH4tv2VRxv+8nQbU32aP83KOzpovOk4AlbKPRZsxq8ErWUSPngeAtWYCjuZgsgk5AMWavVTA==}
+  '@nuogz/hades@7.0.2':
+    resolution: {integrity: sha512-uXkaIdJgPVE6TGJPh6uUj73e8GDUkZLFTlBYrLBpWGKFDd9l1SP610uRv+T2eVCX8Gb6qr25LgxJZH9A4OB8Kw==}
     engines: {node: '>=20'}
 
-  '@nuogz/i18n@3.6.0':
-    resolution: {integrity: sha512-PYONeSMGrZbkyX1LHMURGdoG4Y/1rxQIWoyL8bSx05C0CdJce7868Rl0Riq8HVHTOWUa/K6qdBNefu0Gn6wGNQ==}
+  '@nuogz/i18n@3.7.1':
+    resolution: {integrity: sha512-gj9/TopBhT64jmcTH74vR1vGckrRGCXXz6pt/4UTO3ThESDEggoPJare9SL9wl1SW6KRacv0APzs9cFQwvOETQ==}
     engines: {node: '>=20'}
 
   '@nuogz/json-bigint@1.3.1':
@@ -613,9 +613,9 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@nuogz/hades@7.0.0(@nuogz/json-bigint@1.3.1)':
+  '@nuogz/hades@7.0.2(@nuogz/json-bigint@1.3.1)':
     dependencies:
-      '@nuogz/i18n': 3.6.0
+      '@nuogz/i18n': 3.7.1
       '@nuogz/utility': 1.8.1(@nuogz/json-bigint@1.3.1)
       chalk: 5.3.0
       dayjs: 1.11.12
@@ -626,17 +626,17 @@ snapshots:
       - '@nuogz/json-bigint'
       - supports-color
 
-  '@nuogz/i18n@3.6.0':
+  '@nuogz/i18n@3.7.1':
     dependencies:
       i18next: 23.12.2
 
   '@nuogz/json-bigint@1.3.1':
     dependencies:
-      '@nuogz/i18n': 3.6.0
+      '@nuogz/i18n': 3.7.1
 
   '@nuogz/poseidon@8.2.0':
     dependencies:
-      '@nuogz/i18n': 3.6.0
+      '@nuogz/i18n': 3.7.1
       escape-string-regexp: 5.0.0
       typescript: 5.5.4
 

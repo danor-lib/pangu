@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## v5.4.1 - 2024.07.23 19
+* deps(log): bump up `@nuogz/hades` to `7.0.2`
+
+
 ## v5.4.0 - 2024.07.23 10
 * feat(log): support for passing all the latest options to `@nuogz/hades`
-* deps(log)!: bump up `@nuogz/hades` to `7.0.0.`
+* deps(log)!: bump up `@nuogz/hades` to `7.0.0`
 * refactor(i18n): update codes according to break changes in latest version of `@nuogz/i18n`
 * deps: bump up dependencies
 * refactor: the unsplited raw params will be set into `launcher.params[key].raw`
