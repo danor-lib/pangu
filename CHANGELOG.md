@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v5.4.2 - 2024.07.24 10
+* feat(Hades): export new `Hades` subclasses `Melinoe` and `Zagreus`
+* docs: update `README.md` about changes of `i18n` and `log (hades)`
+* docs: update types about export new `Hades` subclasses 
+
+
 ## v5.4.1 - 2024.07.23 19
 * deps(log): bump up `@nuogz/hades` to `7.0.2`
 

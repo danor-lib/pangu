@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/pangu",
-	"version": "5.4.1",
+	"version": "5.4.2",
 	"description": "The cornerstone library for unified initialising of common usage",
 	"author": "DanoR",
 	"license": "LGPL-3.0-or-later",
@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@eslint/js": "^9.7.0",
 		"@stylistic/eslint-plugin-js": "^2.3.0",
-		"@types/node": "^20.14.11",
+		"@types/node": "^20.14.12",
 		"eslint": "^9.7.0",
 		"globals": "^15.8.0",
 		"typescript": "^5.5.4"

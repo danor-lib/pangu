@@ -45,6 +45,10 @@ declare const DayDefault: typeof import("dayjs");
 declare const PoseidonDefault: import("@nuogz/poseidon").PoseidonInterface;
 /** @type {import('@nuogz/hades').default} */
 declare const HadesDefault: import("@nuogz/hades").default;
+/** @type {import('@nuogz/hades').Melinoe} */
+declare const MelinoeDefault: import("@nuogz/hades").Melinoe;
+/** @type {import('@nuogz/hades').Zagreus} */
+declare const ZagreusDefault: import("@nuogz/hades").Zagreus;
 /** @type {import('commander').Command} */
 declare const CommanderDefault: import("commander").Command;
-export { i18nDefault as i18n, i18ns$alias as i18ns, dirDefault as dirWorking, dirs$alias as dirsWorking, packageDefault as PKG, packages$alias as packages, commandDefault as O, commands$alias as commands, configDefault as C, configs$alias as configs, logDefault as G, logDefaultSub as GG, logs$alias as logs, processDefault as process, DayDefault as Day, PoseidonDefault as Poseidon, HadesDefault as Hades, CommanderDefault as Commander };
+export { i18nDefault as i18n, i18ns$alias as i18ns, dirDefault as dirWorking, dirs$alias as dirsWorking, packageDefault as PKG, packages$alias as packages, commandDefault as O, commands$alias as commands, configDefault as C, configs$alias as configs, logDefault as G, logDefaultSub as GG, logs$alias as logs, processDefault as process, DayDefault as Day, PoseidonDefault as Poseidon, HadesDefault as Hades, MelinoeDefault as Melinoe, ZagreusDefault as Zagreus, CommanderDefault as Commander };

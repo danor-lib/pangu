@@ -57,6 +57,8 @@ if('$pangu' in globalThis == false) {
 			DayDefault: void 0,
 			PoseidonDefault: void 0,
 			HadesDefault: void 0,
+			MelinoeDefault: void 0,
+			ZagreusDefault: void 0,
 			CommanderDefault: void 0,
 		},
 		promisesWait: [],
@@ -115,7 +117,7 @@ parseParamString(import.meta.url);
 /** @typedef {import('./bases.d.ts').I18NResult} I18NResult */
 
 
-const exportUtil = (util, launcher) => {
+const exportUtil = (util, launcher, utilsSub) => {
 	if(launcher.util == 'i18n') {
 		utilsExport.i18ns$alias[launcher.alias] = util;
 
@@ -150,7 +152,11 @@ const exportUtil = (util, launcher) => {
 	else if(launcher.util == 'process') { utilsExport.processDefault = util; }
 	else if(launcher.util == 'day') { utilsExport.DayDefault = util; }
 	else if(launcher.util == 'poseidon') { utilsExport.PoseidonDefault = util; }
-	else if(launcher.util == 'hades') { utilsExport.HadesDefault = util; }
+	else if(launcher.util == 'hades') {
+		utilsExport.HadesDefault = util;
+		utilsExport.MelinoeDefault = utilsSub.Melinoe;
+		utilsExport.ZagreusDefault = utilsSub.Zagreus;
+	}
 	else if(launcher.util == 'commander') { utilsExport.CommanderDefault = util; }
 };
 
@@ -196,6 +202,7 @@ const initUtil = async (launcher, environment) => {
 	if(!launcher.enabled) { return; }
 
 	let util;
+	const utilsSub = {};
 	if(launcher.util == 'i18n') {
 		util = initI18NUtil(launcher, environment, $pangu);
 	}
@@ -239,7 +246,12 @@ const initUtil = async (launcher, environment) => {
 		util = environment.$imported[launcher.util] ? environment.Poseidon : (environment.Poseidon = (await import('@nuogz/poseidon')).Poseidon);
 	}
 	else if(launcher.util == 'hades') {
-		util = environment.$imported[launcher.util] ? environment.Hades : (environment.Hades = (await import('@nuogz/hades')).default);
+		const module = await import('@nuogz/hades');
+
+		util = environment.$imported[launcher.util] ? environment.Hades : (environment.Hades = module.default);
+
+		utilsSub.Melinoe = environment.$imported[launcher.util] ? environment.Melinoe : (environment.Melinoe = module.Melinoe);
+		utilsSub.Zagreus = environment.$imported[launcher.util] ? environment.Zagreus : (environment.Zagreus = module.Zagreus);
 	}
 	else if(launcher.util == 'commander') {
 		util = environment.$imported[launcher.util] ? environment.Commander : (environment.Commander = (await import('commander/esm.mjs')));
@@ -249,7 +261,7 @@ const initUtil = async (launcher, environment) => {
 	if(util) {
 		environment.$imported[launcher.util] = true;
 
-		exportUtil(util, launcher);
+		exportUtil(util, launcher, utilsSub);
 	}
 
 
@@ -325,6 +337,10 @@ const DayDefault = utilsExport.DayDefault;
 const PoseidonDefault = utilsExport.PoseidonDefault;
 /** @type {import('@nuogz/hades').default} */
 const HadesDefault = utilsExport.HadesDefault;
+/** @type {import('@nuogz/hades').Melinoe} */
+const MelinoeDefault = utilsExport.MelinoeDefault;
+/** @type {import('@nuogz/hades').Zagreus} */
+const ZagreusDefault = utilsExport.ZagreusDefault;
 /** @type {import('commander').Command} */
 const CommanderDefault = utilsExport.CommanderDefault;
 
@@ -350,5 +366,7 @@ export {
 	DayDefault as Day,
 	PoseidonDefault as Poseidon,
 	HadesDefault as Hades,
+	MelinoeDefault as Melinoe,
+	ZagreusDefault as Zagreus,
 	CommanderDefault as Commander,
 };

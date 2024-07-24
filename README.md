@@ -212,16 +212,16 @@ import { C, G } from '@nuogz/pangu';
 
 ### 前置组件
 #### 国际化`i18n`
-对国际化库`@nuogz/i18n`的两个初始化环境变量`NENV_I18N_LOCALE`和`NENV_I18N_FORMAT`进行设置  
-初始化配置将直接赋值给两个环境变量
-##### `NENV_I18N_LOCALE`赋值优先级
+对国际化库`@nuogz/i18n`的两个初始化环境变量`NENV_I18N`进行设置  
+初始化配置将直接变更进程的`NENV_I18N`环境变量
+##### `NENV_I18N=locale`赋值优先级
 - 具名参数`locale`的参数
   - 支持多个参数
   - 特殊插入值
     - `<sys>`：系统当前语言，等于`Intl.DateTimeFormat().resolvedOptions().locale`
 - 默认非具名参数1 
 - `Intl.DateTimeFormat().resolvedOptions().locale`
-##### `NENV_I18N_FORMAT`赋值优先级
+##### `NENV_I18N=format`赋值优先级
 - 具名参数`format`的参数1
 - 默认非具名参数2
 - `"hades"`
@@ -296,6 +296,9 @@ dir组件将设置并导出一个`工作目录`(`dirWorking`)
 
 ### 导出相关库
 以下直接导出相关库，方便使用
-#### `Hades`
-#### `Poseidon`
-#### `Commander`
+#### `Hades` ==> `@nuogz/hades`
+- 导出`Hades`
+- 导出`Melinoe`
+- 导出`Zagreus`
+#### `Poseidon` ==> `@nuogz/poseidon`
+#### `Commander` ==> `commander`
