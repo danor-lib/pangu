@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/pangu",
-	"version": "5.4.2",
+	"version": "5.5.0",
 	"description": "The cornerstone library for unified initialising of common usage",
 	"author": "DanoR",
 	"license": "LGPL-3.0-or-later",
@@ -20,10 +20,9 @@
 	"main": "./index.js",
 	"files": [
 		"index.js",
-		"types/**",
 		"lib/**",
 		"util/**",
-		"**/*.d.ts"
+		"types/**"
 	],
 	"types": "./types/index.d.ts",
 	"scripts": {
@@ -31,19 +30,19 @@
 		"postdeclare": "copy /Y bases.d.ts types"
 	},
 	"dependencies": {
-		"@nuogz/hades": "^7.0.2",
-		"@nuogz/json-bigint": "^1.3.1",
-		"@nuogz/poseidon": "^8.2.0",
-		"@nuogz/utility": "^1.8.1",
+		"@nuogz/hades": "^7.1.0",
+		"@nuogz/json-bigint": "^1.4.0",
+		"@nuogz/poseidon": "^8.3.0",
+		"@nuogz/utility": "^1.8.2",
 		"commander": "^12.1.0",
-		"dayjs": "^1.11.12"
+		"dayjs": "^1.11.13"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.7.0",
-		"@stylistic/eslint-plugin-js": "^2.3.0",
-		"@types/node": "^20.14.12",
-		"eslint": "^9.7.0",
-		"globals": "^15.8.0",
+		"@eslint/js": "^9.9.1",
+		"@stylistic/eslint-plugin-js": "^2.6.4",
+		"@types/node": "^20.16.1",
+		"eslint": "^9.9.1",
+		"globals": "^15.9.0",
 		"typescript": "^5.5.4"
 	}
 }

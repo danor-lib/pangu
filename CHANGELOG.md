@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v5.5.0 - 2024.08.27 14
+* deps: bump up dependencies
+* chore: improve develop environments
+
+
 ## v5.4.2 - 2024.07.24 10
 * feat(Hades): export new `Hades` subclasses `Melinoe` and `Zagreus`
 * docs: update `README.md` about changes of `i18n` and `log (hades)`
