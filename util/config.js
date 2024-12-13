@@ -13,7 +13,7 @@ export default function init(launcher, environment, $pangu) {
 	);
 
 
-	const config = new Poseidon(dirConfig, launcher.params.default?.join(','));
+	const config = new Poseidon(dirConfig, launcher.params.default?.join(','), launcher.params.libjson?.join(','));
 
 
 	environment.config = config;

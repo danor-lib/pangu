@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v5.6.0 - 2024.12.13 15
+* feat(config): support to pass new option `libjson` to `@nuogz/poseidon`
+* deps(config): bump up `@nuogz/posedion` to `9.0.0`
+* deps: bump up dependencies
+
+
 ## v5.5.0 - 2024.08.27 14
 * deps: bump up dependencies
 * chore: improve develop environments
