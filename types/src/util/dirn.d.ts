@@ -2,4 +2,4 @@ import type { UtilIniter } from '../../types.ts';
 
 
 
-export const init: UtilIniter<NodeJS.Process>;
+export const init: UtilIniter<string>;

@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## v6.0.0 - 2026.07.16 17
+* refactor!: rename package from `@nuogz/pangu` to `@danor-lib/pangu`
+* docs: **IMPORTANT!** update license to ***MIT***
+* refactor!: rename util `dirn` from `dir`
+* regular: bump up `@nuogz/hades@7` to `@danor-lib/hades@8`
+* regular: bump up `@nuogz/poseidon@9` to `@danor-lib/poseidon@10`
+* refactor!: completely remove the deprecated `commander` component and its associated `commander` library
+* refactor: renew all codes
+* refactor!: remove infrequently used `@nuogz/json-bigint` and `@nuogz/utility`
+* docs: add README and English version
+* docs: improve types and export
+* refactor!: due to a change in design philosophy, remove all error message text
+  * in my design philosophy, an error should only contain a code and associated data. Text-based message should be rendered by the terminal (including i18n and terminal highlighting)
+* regular!: bump up Node.js requirement to `>=26`
+  * this requirement does not mean the library cannot run on older versions of Node.js. It only indicates the major version I am currently using
+* regular: update enviroment
+* regular: bump up dependencies
+
+
 ## v5.6.0 - 2024.12.13 15
 * feat(config): support to pass new option `libjson` to `@nuogz/poseidon`
 * deps(config): bump up `@nuogz/posedion` to `9.0.0`

@@ -1,25 +1,42 @@
-import { parse, resolve } from 'path';
+import { readFileSync } from 'node:fs';
+import { parse as parsePath, resolve as resolvePath } from 'node:path';
 
-import { readPackage } from '@nuogz/utility';
+/** @import { UtilIniter } from '../../types.ts' */
 
 
 
-export default function init(launcher, environment, $pangu) {
-	const dirPackage = resolve(
-		(launcher.params.dir?.[0] || launcher.params.default?.[0])
+/** @param {string} file */
+const readPackage = (file) => {
+	let PKG;
 
-			?.replace(/(?<!\\)<entry(?<!\\)>/g, parse(process.argv[1]).dir).replace(/\\([<>])/g, '$1')
-			?.replace(/(?<!\\)<cwd(?<!\\)>/g, process.cwd()).replace(/\\([<>])/g, '$1') ||
+	try {
+		PKG = readFileSync(file, 'utf8');
+		PKG = JSON.parse(PKG);
+	}
+	catch {
+		PKG = {};
+	}
 
-		environment.dir
+	return PKG;
+};
+
+
+
+/** @type {UtilIniter<Object>} */
+export const init = (launcher, environment, $pangu) => {
+	const dirnPackage = resolvePath(
+		(launcher.params?.dirn?.[0] || launcher.params?.default?.[0])
+			?.replace(/(?<!\\)<entry(?<!\\)>/g, parsePath(process.argv[1]).dir).replace(/\\([<>])/g, '$1')
+			?.replace(/(?<!\\)<cwd(?<!\\)>/g, process.cwd()).replace(/\\([<>])/g, '$1')
+		|| environment.dirn,
 	);
 
 
-	const pkg = readPackage(resolve(dirPackage, 'package.json'));
+	const pkg = readPackage(resolvePath(dirnPackage, 'package.json'));
 
 
 	environment.package = pkg;
 
 
 	return pkg;
-}
+};

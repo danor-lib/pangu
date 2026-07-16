@@ -1,1 +1,7 @@
-export default function init(launcher: any, environment: any, $pangu: any): any;
+import type { Poseidon } from '@danor-lib/poseidon';
+
+import type { UtilIniter } from '../../types.ts';
+
+
+
+export const init: UtilIniter<Poseidon<any>>;

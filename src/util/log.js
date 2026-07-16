@@ -1,47 +1,49 @@
-import { parse, resolve } from 'path';
+import { parse as parsePath, resolve as resolvePath } from 'node:path';
 
-import { copyJSON } from '@nuogz/utility';
-import Hades from '@nuogz/hades';
+import { Hades } from '@danor-lib/hades';
 
-
-
-export default function init(launcher, environment, $pangu) {
-	const { dir: dirWorking, package: PKG, config } = environment;
+/** @import { UtilIniter } from '../../types.ts' */
 
 
-	const parseEnvironmentFlag = string =>
-		string == 'true' ? true
-			: string == 'false' ? false :
-				string === '' ? undefined : string;
+
+const parseEnvironmentFlag = string =>
+	string == 'true' ? true
+		: string == 'false' ? false :
+			string === '' ? undefined : string;
+
+
+/** @type {UtilIniter<Hades>} */
+export const init = (launcher, environment, $pangu) => {
+	const { dirn: dirnWorking, package: PKG, config } = environment;
+
+	const params = launcher.params ?? {};
 
 
 	const G = new Hades(Object.assign({},
-		copyJSON(config.log ?? {}),
+		JSON.parse(JSON.stringify(config?.log ?? {})),
 		{
-			name: launcher.params.name?.raw || launcher.params.default?.[0] || PKG.name,
-			level: launcher.params.level?.raw || launcher.params.default?.[1],
-			dirLog: resolve(
-				launcher.params.dir?.raw
-					?.replace(/(?<!\\)<entry(?<!\\)>/g, parse(process.argv[1]).dir).replace(/\\([<>])/g, '$1')
-					?.replace(/(?<!\\)<cwd(?<!\\)>/g, process.cwd()).replace(/\\([<>])/g, '$1') ||
-				resolve(dirWorking, 'log')
+			name: params.name?.raw || params.default?.[0] || PKG.name,
+			level: params.level?.raw || params.default?.[1],
+			dirn: resolvePath(
+				params.dirn?.raw
+					?.replace(/(?<!\\)<entry(?<!\\)>/g, parsePath(process.argv[1]).dirn).replace(/\\([<>])/g, '$1')
+					?.replace(/(?<!\\)<cwd(?<!\\)>/g, process.cwd()).replace(/\\([<>])/g, '$1')
+				|| resolvePath(dirnWorking, 'log'),
 			),
 
-			eol: launcher.params.eol?.raw,
-			templateTime: launcher.params.templatetime?.raw,
-			sizeFileLogMax: launcher.params.sizefilelogmax?.raw,
-			numberFileLogBackup: launcher.params.numberfilelogbackup?.raw,
+			eol: params.eol?.raw,
+			templateTime: params.templatetime?.raw,
+			sizeFileLogMax: params.sizefilelogmax?.raw,
+			numberFileLogBackupMax: params.numberfilelogbackupmax?.raw,
 
-			willHighlight: parseEnvironmentFlag(launcher.params.willhighlight?.raw),
-			willColorfulLevel: parseEnvironmentFlag(launcher.params.willcolorfullevel?.raw),
-			willOutputInitInfo: parseEnvironmentFlag(launcher.params.willoutputinitinfo?.raw),
-			willOutputLogDir: parseEnvironmentFlag(launcher.params.willoutputlogdir?.raw),
-			willOutputConsoleError: parseEnvironmentFlag(launcher.params.willoutputconsoleerror?.raw),
-			willInitImmediate: parseEnvironmentFlag(launcher.params.willinitimmediate?.raw),
+			willHighlight: parseEnvironmentFlag(params.willhighlight?.raw),
+			willColorfulLevel: parseEnvironmentFlag(params.willcolorfullevel?.raw),
+			willOutputInitInfo: parseEnvironmentFlag(params.willoutputinitinfo?.raw),
+			willConsoleOutputError: parseEnvironmentFlag(params.willconsoleoutputerror?.raw),
+			willInitImmediate: parseEnvironmentFlag(params.willinitimmediate?.raw),
 		}
 	));
 
 
-
 	return G;
-}
+};

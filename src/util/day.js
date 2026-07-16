@@ -2,9 +2,12 @@ import Day from 'dayjs';
 import DayCustomParseFormatPlugin from 'dayjs/plugin/customParseFormat.js';
 import 'dayjs/locale/zh-cn.js';
 
+/** @import { UtilIniter } from '../../types.ts' */
 
 
-export default function init(launcher, environment, $pangu) {
+
+/** @type {UtilIniter<Day>} */
+export const init = (launcher, environment, $pangu) => {
 	Day.extend(DayCustomParseFormatPlugin);
 
 
@@ -15,4 +18,4 @@ export default function init(launcher, environment, $pangu) {
 
 
 	return Day;
-}
+};

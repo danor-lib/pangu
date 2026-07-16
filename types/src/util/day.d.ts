@@ -1,2 +1,7 @@
-export default function init(launcher: any, environment: any, $pangu: any): typeof Day;
-import Day from 'dayjs';
+import type Day from 'dayjs';
+
+import type { UtilIniter } from '../../types.ts';
+
+
+
+export const init: UtilIniter<typeof Day>;

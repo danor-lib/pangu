@@ -1,16 +1,17 @@
-import splitEscape from './lib/split-escape.js';
+/** @import Day from 'dayjs' */
+/** @import { Poseidon } from '@danor-lib/poseidon' */
+/** @import { Hades, Melinoe, Zagreus } from '@danor-lib/hades' */
+/** @import { Environment, Launcher, ScopedSub } from '../types.ts' */
 
 
 
 if('$pangu' in globalThis == false) {
 	globalThis.$pangu = {
 		utils$short: {
-			i18n: 'i18n',
-			dir: 'dir',
+			dir: 'dirn',
+			dirn: 'dirn',
 			pkg: 'package',
 			package: 'package',
-			cmd: 'command',
-			command: 'command',
 			cfg: 'config',
 			conf: 'config',
 			config: 'config',
@@ -21,32 +22,24 @@ if('$pangu' in globalThis == false) {
 			day: 'day',
 			poseidon: 'poseidon',
 			hades: 'hades',
-			commander: 'commander',
 		},
 		orders$util: {
-			i18n: 1,
-			dir: 2,
-			package: 3,
-			command: 4,
-			config: 5,
-			log: 6,
-			process: 7,
+			dirn: 1,
+			package: 2,
+			config: 3,
+			log: 4,
+			process: 5,
 			day: 99,
 			poseidon: 99,
 			hades: 99,
-			commander: 99,
 		},
 		subs$urlImport: {},
 		utils$name: {},
 		utilsExport: {
-			i18nDefault: void 0,
-			i18ns$alias: {},
-			dirDefault: void 0,
-			dirs$alias: {},
+			dirnDefault: void 0,
+			dirns$alias: {},
 			packageDefault: void 0,
 			packages$alias: {},
-			commandDefault: void 0,
-			commands$alias: {},
 			configDefault: void 0,
 			configs$alias: {},
 			logDefault: void 0,
@@ -59,9 +52,9 @@ if('$pangu' in globalThis == false) {
 			HadesDefault: void 0,
 			MelinoeDefault: void 0,
 			ZagreusDefault: void 0,
-			CommanderDefault: void 0,
 		},
 		promisesWait: [],
+		texts: {},
 	};
 }
 const $pangu = globalThis.$pangu;
@@ -71,6 +64,7 @@ const urlImport = import.meta.url;
 
 
 const { utils$name, orders$util, utils$short, utilsExport } = $pangu;
+/** @type {ScopedSub} */
 const subScoped = $pangu.subs$urlImport[urlImport] = {
 	launchers$name: {},
 	environments$space: {},
@@ -78,6 +72,17 @@ const subScoped = $pangu.subs$urlImport[urlImport] = {
 
 const environments$space = subScoped.environments$space;
 const launchers$name = subScoped.launchers$name;
+
+
+/**
+ * @param {string} string
+ * @param {string} splitter
+ * @returns {string[]}
+ */
+export const splitEscape = (string, splitter) => string
+	.split(RegExp(`(?<!\\\\)${splitter}`))
+	.map(str => str.trim().replace(RegExp(`\\\\${splitter}`, 'g'), ','));
+
 
 
 const parseParamString = string => {
@@ -111,32 +116,19 @@ const parseParamString = string => {
 
 parseParamString(`https://world.peace?${process.env.NENV_PANGU ?? ''}`);
 parseParamString(import.meta.url);
-// parseParamString(paramsStringCLI);
 
-
-/** @typedef {import('./bases.d.ts').I18NResult} I18NResult */
 
 
 const exportUtil = (util, launcher, utilsSub) => {
-	if(launcher.util == 'i18n') {
-		utilsExport.i18ns$alias[launcher.alias] = util;
+	if(launcher.util == 'dirn') {
+		utilsExport.dirns$alias[launcher.alias] = util;
 
-		if(launcher.alias == '') { utilsExport.i18nDefault = util; }
-	}
-	else if(launcher.util == 'dir') {
-		utilsExport.dirs$alias[launcher.alias] = util;
-
-		if(launcher.alias == '') { utilsExport.dirDefault = util; }
+		if(launcher.alias == '') { utilsExport.dirnDefault = util; }
 	}
 	else if(launcher.util == 'package') {
 		utilsExport.packages$alias[launcher.alias] = util;
 
 		if(launcher.alias == '') { utilsExport.packageDefault = util; }
-	}
-	else if(launcher.util == 'command') {
-		utilsExport.commands$alias[launcher.alias] = util;
-
-		if(launcher.alias == '') { utilsExport.commandDefault = util; }
 	}
 	else if(launcher.util == 'config') {
 		utilsExport.configs$alias[launcher.alias] = util;
@@ -157,104 +149,60 @@ const exportUtil = (util, launcher, utilsSub) => {
 		utilsExport.MelinoeDefault = utilsSub.Melinoe;
 		utilsExport.ZagreusDefault = utilsSub.Zagreus;
 	}
-	else if(launcher.util == 'commander') { utilsExport.CommanderDefault = util; }
 };
 
 
 
-const parseLocalesSystem = () => {
-	const partsLocale = Intl.DateTimeFormat().resolvedOptions().locale.split('-');
-
-	return partsLocale.reduce((acc, cur, index) => (
-		acc.push(partsLocale.slice(0, index + 1).join('-').toLowerCase()),
-		acc
-	), []).join(';');
-};
-
-
-const initI18NUtil = (launcher, environment) => {
-	const localeSystem = parseLocalesSystem();
-
-
-	const locale =
-		launcher.params.locale?.join(';').replace(/(?<!\\)<sys(?<!\\)>/g, localeSystem).replace(/\\([<>])/g, '$1') ||
-		launcher.params.default?.[0] ||
-		localeSystem;
-
-	const format = launcher.params.format?.raw ||
-		launcher.params.default?.[1] ||
-		'hades';
-
-
-	environment.locale = locale;
-	environment.format = format;
-
-
-	process.env.NENV_I18N = `locale=${locale}&format=${format}`;
-
-
-	return { locale, format };
-};
-
-
-
+/**
+ * @param {Launcher} launcher
+ * @param {Environment} environment
+ */
 const initUtil = async (launcher, environment) => {
 	if(!launcher.enabled) { return; }
 
 	let util;
 	const utilsSub = {};
-	if(launcher.util == 'i18n') {
-		util = initI18NUtil(launcher, environment, $pangu);
-	}
-	else if(launcher.util == 'dir') {
-		util = (await import('./util/dir.js')).default(launcher, environment, $pangu);
+	if(launcher.util == 'dirn') {
+		util = (await import('./util/dirn.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'package') {
-		if(!environment.$imported.dir) { await initDefaultUtil('dir', launcher.space, environment); }
+		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 
-		util = (await import('./util/package.js')).default(launcher, environment, $pangu);
-	}
-	else if(launcher.util == 'command') {
-		if(!environment.$imported.package) { await initDefaultUtil('package', launcher.space, environment); }
-
-		util = (await import('./util/command.js')).default(launcher, environment, $pangu);
+		util = (await import('./util/package.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'config') {
-		if(!environment.$imported.dir) { await initDefaultUtil('dir', launcher.space, environment); }
+		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 
-		util = (await import('./util/config.js')).default(launcher, environment, $pangu);
+		util = (await import('./util/config.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'log') {
-		if(!environment.$imported.dir) { await initDefaultUtil('dir', launcher.space, environment); }
+		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 		if(!environment.$imported.package) { await initDefaultUtil('package', launcher.space, environment); }
 		if(!environment.$imported.config) { await initDefaultUtil('config', launcher.space, environment); }
 
-		util = (await import('./util/log.js')).default(launcher, environment, $pangu);
+		util = (await import('./util/log.js')).init(launcher, environment, $pangu);
 	}
 
 	else if(launcher.util == 'process') {
 		if(!environment.$imported.package) { await initDefaultUtil('package', launcher.space, environment); }
 		if(!environment.$imported.log) { await initDefaultUtil('log', launcher.space, environment); }
 
-		util = (await import('./util/process.js')).default(launcher, environment, $pangu);
+		util = (await import('./util/process.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'day') {
-		util = (await import('./util/day.js')).default(launcher, environment, $pangu);
+		util = (await import('./util/day.js')).init(launcher, environment, $pangu);
 	}
 
 	else if(launcher.util == 'poseidon') {
-		util = environment.$imported[launcher.util] ? environment.Poseidon : (environment.Poseidon = (await import('@nuogz/poseidon')).Poseidon);
+		util = environment.$imported[launcher.util] ? environment.Poseidon : (environment.Poseidon = (await import('@danor-lib/poseidon')).Poseidon);
 	}
 	else if(launcher.util == 'hades') {
-		const module = await import('@nuogz/hades');
+		const module = await import('@danor-lib/hades');
 
 		util = environment.$imported[launcher.util] ? environment.Hades : (environment.Hades = module.default);
 
 		utilsSub.Melinoe = environment.$imported[launcher.util] ? environment.Melinoe : (environment.Melinoe = module.Melinoe);
 		utilsSub.Zagreus = environment.$imported[launcher.util] ? environment.Zagreus : (environment.Zagreus = module.Zagreus);
-	}
-	else if(launcher.util == 'commander') {
-		util = environment.$imported[launcher.util] ? environment.Commander : (environment.Commander = (await import('commander/esm.mjs')));
 	}
 
 
@@ -267,6 +215,11 @@ const initUtil = async (launcher, environment) => {
 
 	return util;
 };
+/**
+ * @param {string} util
+ * @param {Launcher['space']} space
+ * @param {Environment} environment
+ */
 const initDefaultUtil = async (util, space, environment) => {
 	const launcher = util in launchers$name ? launchers$name[util] : (launchers$name[util] = {
 		name: util, util, alias: '', space,
@@ -302,59 +255,45 @@ await Promise.all(promisesWait);
 
 
 
-/** @type {I18NResult} */
-const i18nDefault = utilsExport.i18nDefault;
-/** @type {Object<string, I18NResult>} */
-const i18ns$alias = utilsExport.i18ns$alias;
 /** @type {string} */
-const dirDefault = utilsExport.dirDefault;
-/** @type {Object<string, string>} */
-const dirs$alias = utilsExport.dirs$alias;
+const dirnDefault = utilsExport.dirnDefault;
+/** @type {Record<string, string>} */
+const dirns$alias = utilsExport.dirns$alias;
 /** @type {Object} */
 const packageDefault = utilsExport.packageDefault;
-/** @type {Object<string, Object>} */
+/** @type {Record<string, Object>} */
 const packages$alias = utilsExport.packages$alias;
-/** @type {import('commander').OptionValues} */
-const commandDefault = utilsExport.commandDefault;
-/** @type {Object<string, import('commander').OptionValues>} */
-const commands$alias = utilsExport.commands$alias;
-/** @type {import('@nuogz/poseidon').PoseidonInterface} */
+/** @type {Poseidon} */
 const configDefault = utilsExport.configDefault;
-/** @type {Object<string, import('@nuogz/poseidon').PoseidonInterface>} */
+/** @type {Record<string, Poseidon>} */
 const configs$alias = utilsExport.configs$alias;
-/** @type {import('@nuogz/hades').default} */
+/** @type {Hades} */
 const logDefault = utilsExport.logDefault;
-/** @type {import('@nuogz/hades').default | typeof globalThis.console} */
+/** @type {Hades | globalThis['console']} */
 const logDefaultSub = utilsExport.logDefaultSub;
-/** @type {Object<string, import('@nuogz/hades').default>} */
+/** @type {Record<string, Hades>} */
 const logs$alias = utilsExport.logs$alias;
 
-/** @type {typeof globalThis.process} */
+/** @type {globalThis['process']} */
 const processDefault = utilsExport.processDefault;
-/** @type {import('dayjs')} */
+/** @type {Day} */
 const DayDefault = utilsExport.DayDefault;
-/** @type {import('@nuogz/poseidon').PoseidonInterface} */
+/** @type {Poseidon} */
 const PoseidonDefault = utilsExport.PoseidonDefault;
-/** @type {import('@nuogz/hades').default} */
+/** @type {Hades} */
 const HadesDefault = utilsExport.HadesDefault;
-/** @type {import('@nuogz/hades').Melinoe} */
+/** @type {Melinoe} */
 const MelinoeDefault = utilsExport.MelinoeDefault;
-/** @type {import('@nuogz/hades').Zagreus} */
+/** @type {Zagreus} */
 const ZagreusDefault = utilsExport.ZagreusDefault;
-/** @type {import('commander').Command} */
-const CommanderDefault = utilsExport.CommanderDefault;
 
 
 
 export {
-	i18nDefault as i18n,
-	i18ns$alias as i18ns,
-	dirDefault as dirWorking,
-	dirs$alias as dirsWorking,
+	dirnDefault as dirnWorking,
+	dirns$alias as dirnsWorking,
 	packageDefault as PKG,
 	packages$alias as packages,
-	commandDefault as O,
-	commands$alias as commands,
 
 	configDefault as C,
 	configs$alias as configs,
@@ -368,5 +307,4 @@ export {
 	HadesDefault as Hades,
 	MelinoeDefault as Melinoe,
 	ZagreusDefault as Zagreus,
-	CommanderDefault as Commander,
 };

@@ -1,54 +1,44 @@
-export type I18NResult = import("./bases.d.ts").I18NResult;
-/** @type {I18NResult} */
-declare const i18nDefault: I18NResult;
-/** @type {Object<string, I18NResult>} */
-declare const i18ns$alias: {
-    [x: string]: I18NResult;
+import type Day from 'dayjs';
+import type { Hades, Melinoe, Zagreus } from '@danor-lib/hades';
+import type { Poseidon } from '@danor-lib/poseidon';
+
+
+
+export function splitEscape(string: string, splitter: string): string[];
+
+
+declare const dirnDefault: string;
+declare const dirns$alias: Record<string, string>;
+declare const packageDefault: object;
+declare const packages$alias: Record<string, object>;
+declare const configDefault: Poseidon;
+declare const configs$alias: Record<string, Poseidon>;
+declare const logDefault: Hades;
+declare const logDefaultSub: Hades | Console;
+declare const logs$alias: Record<string, Hades>;
+declare const processDefault: NodeJS.Process;
+declare const DayDefault: typeof Day;
+declare const PoseidonDefault: Poseidon;
+declare const HadesDefault: Hades;
+declare const MelinoeDefault: Melinoe;
+declare const ZagreusDefault: Zagreus;
+
+
+
+export {
+	dirnDefault as dirnWorking,
+	dirns$alias as dirnsWorking,
+	packageDefault as PKG,
+	packages$alias as packages,
+	configDefault as C,
+	configs$alias as configs,
+	logDefault as G,
+	logDefaultSub as GG,
+	logs$alias as logs,
+	processDefault as process,
+	DayDefault as Day,
+	PoseidonDefault as Poseidon,
+	HadesDefault as Hades,
+	MelinoeDefault as Melinoe,
+	ZagreusDefault as Zagreus,
 };
-/** @type {string} */
-declare const dirDefault: string;
-/** @type {Object<string, string>} */
-declare const dirs$alias: {
-    [x: string]: string;
-};
-/** @type {Object} */
-declare const packageDefault: Object;
-/** @type {Object<string, Object>} */
-declare const packages$alias: {
-    [x: string]: Object;
-};
-/** @type {import('commander').OptionValues} */
-declare const commandDefault: import("commander").OptionValues;
-/** @type {Object<string, import('commander').OptionValues>} */
-declare const commands$alias: {
-    [x: string]: import("commander").OptionValues;
-};
-/** @type {import('@nuogz/poseidon').PoseidonInterface} */
-declare const configDefault: import("@nuogz/poseidon").PoseidonInterface;
-/** @type {Object<string, import('@nuogz/poseidon').PoseidonInterface>} */
-declare const configs$alias: {
-    [x: string]: import("@nuogz/poseidon").PoseidonInterface;
-};
-/** @type {import('@nuogz/hades').default} */
-declare const logDefault: import("@nuogz/hades").default;
-/** @type {import('@nuogz/hades').default | typeof globalThis.console} */
-declare const logDefaultSub: import("@nuogz/hades").default | typeof globalThis.console;
-/** @type {Object<string, import('@nuogz/hades').default>} */
-declare const logs$alias: {
-    [x: string]: import("@nuogz/hades").default;
-};
-/** @type {typeof globalThis.process} */
-declare const processDefault: typeof globalThis.process;
-/** @type {import('dayjs')} */
-declare const DayDefault: typeof import("dayjs");
-/** @type {import('@nuogz/poseidon').PoseidonInterface} */
-declare const PoseidonDefault: import("@nuogz/poseidon").PoseidonInterface;
-/** @type {import('@nuogz/hades').default} */
-declare const HadesDefault: import("@nuogz/hades").default;
-/** @type {import('@nuogz/hades').Melinoe} */
-declare const MelinoeDefault: import("@nuogz/hades").Melinoe;
-/** @type {import('@nuogz/hades').Zagreus} */
-declare const ZagreusDefault: import("@nuogz/hades").Zagreus;
-/** @type {import('commander').Command} */
-declare const CommanderDefault: import("commander").Command;
-export { i18nDefault as i18n, i18ns$alias as i18ns, dirDefault as dirWorking, dirs$alias as dirsWorking, packageDefault as PKG, packages$alias as packages, commandDefault as O, commands$alias as commands, configDefault as C, configs$alias as configs, logDefault as G, logDefaultSub as GG, logs$alias as logs, processDefault as process, DayDefault as Day, PoseidonDefault as Poseidon, HadesDefault as Hades, MelinoeDefault as Melinoe, ZagreusDefault as Zagreus, CommanderDefault as Commander };

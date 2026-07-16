@@ -1,1 +1,5 @@
-export default function init(launcher: any, environment: any, $pangu: any): any;
+import type { UtilIniter } from '../../types.ts';
+
+
+
+export const init: UtilIniter<object>;

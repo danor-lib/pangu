@@ -1,2 +1,7 @@
-export default function init(launcher: any, environment: any, $pangu: any): Hades;
-import Hades from '@nuogz/hades';
+import type { Hades } from '@danor-lib/hades';
+
+import type { UtilIniter } from '../../types.ts';
+
+
+
+export const init: UtilIniter<Hades>;

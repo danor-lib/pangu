@@ -1,48 +1,40 @@
 {
-	"name": "@nuogz/pangu",
-	"version": "5.6.0",
+	"name": "@danor-lib/pangu",
+	"version": "6.0.0",
 	"description": "The cornerstone library for unified initialising of common usage",
 	"author": "DanoR",
-	"license": "LGPL-3.0-or-later",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/nuogz/pangu.git"
+		"url": "git+https://github.com/danor-lib/pangu.git"
 	},
 	"private": false,
+	"sideEffects": true,
 	"type": "module",
 	"typesSource": [
 		"node"
 	],
-	"sideEffects": false,
 	"engines": {
-		"node": ">=20"
+		"node": ">=26"
 	},
-	"main": "./index.js",
 	"files": [
 		"index.js",
-		"lib/**",
-		"util/**",
+		"src/**/*.js",
+		"types.ts",
 		"types/**"
 	],
+	"main": "./index.js",
 	"types": "./types/index.d.ts",
-	"scripts": {
-		"declare": "tsc",
-		"postdeclare": "copy /Y bases.d.ts types"
-	},
 	"dependencies": {
-		"@nuogz/hades": "^7.1.0",
-		"@nuogz/json-bigint": "^1.4.0",
-		"@nuogz/poseidon": "^9.0.0",
-		"@nuogz/utility": "^1.8.2",
-		"commander": "^12.1.0",
-		"dayjs": "^1.11.13"
+		"@danor-lib/hades": "^8.0.1",
+		"@danor-lib/poseidon": "^10.0.5",
+		"dayjs": "^1.11.21"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.16.0",
-		"@stylistic/eslint-plugin-js": "^2.12.1",
-		"@types/node": "^20.17.10",
-		"eslint": "^9.16.0",
-		"globals": "^15.13.0",
-		"typescript": "^5.7.2"
+		"@eslint/js": "^10.0.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@types/node": "^26.1.1",
+		"eslint": "^10.7.0",
+		"globals": "^17.7.0"
 	}
 }
