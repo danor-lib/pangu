@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v6.0.2 - 2026.07.20 11
+* fix: correct the incorrect export of the async `config` util
+
+
 ## v6.0.1 - 2026.07.20 11
 * fix: revert the move of `./index.js` to `./src/Pangu.js` to fix the critical issue that cannot correctly parse the query parameters in the import specifier
 * docs: update recommended usage
@@ -11,7 +15,7 @@
 * refactor!: rename util `dirn` from `dir`
 * regular: bump up `@nuogz/hades@7` to `@danor-lib/hades@8`
 * regular: bump up `@nuogz/poseidon@9` to `@danor-lib/poseidon@10`
-* refactor!: completely remove the deprecated `commander` component and its associated `commander` library
+* refactor!: completely remove the deprecated `commander` util and its associated `commander` library
 * refactor: renew all codes
 * refactor!: remove infrequently used `@nuogz/json-bigint` and `@nuogz/utility`
 * docs: add README and English version

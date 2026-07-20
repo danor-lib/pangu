@@ -173,7 +173,7 @@ const initUtil = async (launcher, environment) => {
 	else if(launcher.util == 'config') {
 		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 
-		util = (await import('./src/util/config.js')).init(launcher, environment, $pangu);
+		util = await (await import('./src/util/config.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'log') {
 		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
