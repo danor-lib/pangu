@@ -28,7 +28,9 @@ Pangu, the cornerstone library for unified initialization of common usage librar
 ## 基础示例
 
 ```javascript
-import { C, G, Day, dirnWorking, PKG } from '@danor-lib/pangu/index.js?config&log&day';
+import '@danor-lib/pangu/index.js?config&log&day';
+import { C, G, Day, dirnWorking, PKG } from '@danor-lib/pangu';
+// 推荐第一行负责初始化，第二行负责导入。以便 VSCode 等编辑器能够正确提供智能提示。
 
 // C: Poseidon 配置实例（对应 config 组件，默认读取 ./config/ 目录）
 console.log(C.apple);      // config.apple.json 的数据
@@ -499,11 +501,25 @@ import { C } from '@danor-lib/pangu/index.js?dirn:default:api=./api&config:defau
 ```javascript
 // entry-a.js
 import { C, G } from '@danor-lib/pangu/index.js?dirn&config&log';
+import 'lib/func.js';
 // 初始化 dirn → config → log
 
-// entry-b.js（同一进程）
-import { G } from '@danor-lib/pangu/index.js?log';
-// 直接复用已初始化的 G，不会重复初始化
+// lib/func.js（同一进程）
+import { G } from '@danor-lib/pangu';
+// 直接复用已初始化的 G，不会重复初始化。且可以不写`/index.js`
+```
+
+更推荐的写法：
+```javascript
+// entry-a.js
+import '@danor-lib/pangu/index.js?dirn&config&log';
+import { C, G } from '@danor-lib/pangu';
+import 'lib/func.js';
+// 第一行负责初始化，第二行负责导入。以便 VSCode 等编辑器能够正确提供智能提示。
+
+// lib/func.js（同一进程）
+import { C, G } from '@danor-lib/pangu';
+// 直接复用已初始化的 G，不会重复初始化。且可以不写`/index.js`
 ```
 
 使用 `?` 前缀可以仅查询已启用的组件而不主动初始化：

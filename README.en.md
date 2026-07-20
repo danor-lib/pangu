@@ -27,7 +27,10 @@ In Node.js projects, it is common to manually import and initialize multiple fou
 ## Basic Example
 
 ```javascript
-import { C, G, Day, dirnWorking, PKG } from '@danor-lib/pangu/index.js?config&log&day';
+import '@danor-lib/pangu/index.js?config&log&day';
+import { C, G, Day, dirnWorking, PKG } from '@danor-lib/pangu';
+// It is recommended that the first line handles initialization and the second line handles importing.
+// This allows editors like VSCode to provide correct IntelliSense.
 
 // C: Poseidon configuration instance (corresponds to config component, reads ./config/ by default)
 console.log(C.apple);      // data from config.apple.json
@@ -498,11 +501,28 @@ import { C } from '@danor-lib/pangu/index.js?dirn:default:api=./api&config:defau
 ```javascript
 // entry-a.js
 import { C, G } from '@danor-lib/pangu/index.js?dirn&config&log';
+import 'lib/func.js';
 // Initializes dirn → config → log
 
-// entry-b.js (same process)
-import { G } from '@danor-lib/pangu/index.js?log';
-// Directly reuses the already-initialized G, no duplicate initialization
+// lib/func.js (same process)
+import { G } from '@danor-lib/pangu';
+// Directly reuses the already-initialized G, no duplicate initialization.
+// Also, `/index.js` can be omitted.
+```
+
+A more recommended approach:
+```javascript
+// entry-a.js
+import '@danor-lib/pangu/index.js?dirn&config&log';
+import { C, G } from '@danor-lib/pangu';
+import 'lib/func.js';
+// The first line initializes, the second line imports.
+// This allows editors like VSCode to provide correct IntelliSense.
+
+// lib/func.js (same process)
+import { C, G } from '@danor-lib/pangu';
+// Directly reuses the already-initialized G, no duplicate initialization.
+// Also, `/index.js` can be omitted.
 ```
 
 Using the `?` prefix only queries already-enabled components without active initialization:

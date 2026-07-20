@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v6.0.1 - 2026.07.20 11
+* fix: revert the move of `./index.js` to `./src/Pangu.js` to fix the critical issue that cannot correctly parse the query parameters in the import specifier
+* docs: update recommended usage
+
+
 ## v6.0.0 - 2026.07.16 17
 * refactor!: rename package from `@nuogz/pangu` to `@danor-lib/pangu`
 * docs: **IMPORTANT!** update license to ***MIT***

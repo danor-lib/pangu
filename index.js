@@ -1,7 +1,7 @@
 /** @import Day from 'dayjs' */
 /** @import { Poseidon } from '@danor-lib/poseidon' */
 /** @import { Hades, Melinoe, Zagreus } from '@danor-lib/hades' */
-/** @import { Environment, Launcher, ScopedSub } from '../types.ts' */
+/** @import { Environment, Launcher, ScopedSub } from './types.ts' */
 
 
 
@@ -163,34 +163,34 @@ const initUtil = async (launcher, environment) => {
 	let util;
 	const utilsSub = {};
 	if(launcher.util == 'dirn') {
-		util = (await import('./util/dirn.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/dirn.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'package') {
 		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 
-		util = (await import('./util/package.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/package.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'config') {
 		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 
-		util = (await import('./util/config.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/config.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'log') {
 		if(!environment.$imported.dirn) { await initDefaultUtil('dirn', launcher.space, environment); }
 		if(!environment.$imported.package) { await initDefaultUtil('package', launcher.space, environment); }
 		if(!environment.$imported.config) { await initDefaultUtil('config', launcher.space, environment); }
 
-		util = (await import('./util/log.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/log.js')).init(launcher, environment, $pangu);
 	}
 
 	else if(launcher.util == 'process') {
 		if(!environment.$imported.package) { await initDefaultUtil('package', launcher.space, environment); }
 		if(!environment.$imported.log) { await initDefaultUtil('log', launcher.space, environment); }
 
-		util = (await import('./util/process.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/process.js')).init(launcher, environment, $pangu);
 	}
 	else if(launcher.util == 'day') {
-		util = (await import('./util/day.js')).init(launcher, environment, $pangu);
+		util = (await import('./src/util/day.js')).init(launcher, environment, $pangu);
 	}
 
 	else if(launcher.util == 'poseidon') {
