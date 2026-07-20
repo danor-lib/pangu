@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v6.0.3 - 2026.07.20 14
+* regular: bump up dependencies
+
+
 ## v6.0.2 - 2026.07.20 11
 * fix: correct the incorrect export of the async `config` util
 
@@ -7,6 +11,7 @@
 ## v6.0.1 - 2026.07.20 11
 * fix: revert the move of `./index.js` to `./src/Pangu.js` to fix the critical issue that cannot correctly parse the query parameters in the import specifier
 * docs: update recommended usage
+* regular: bump up dependencies
 
 
 ## v6.0.0 - 2026.07.16 17

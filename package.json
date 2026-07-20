@@ -1,6 +1,6 @@
 {
 	"name": "@danor-lib/pangu",
-	"version": "6.0.2",
+	"version": "6.0.3",
 	"description": "The cornerstone library for unified initialising of common usage",
 	"author": "DanoR",
 	"license": "MIT",
@@ -27,7 +27,7 @@
 	"types": "./types/index.d.ts",
 	"dependencies": {
 		"@danor-lib/hades": "^8.0.2",
-		"@danor-lib/poseidon": "^10.0.5",
+		"@danor-lib/poseidon": "^10.0.6",
 		"dayjs": "^1.11.21"
 	},
 	"devDependencies": {

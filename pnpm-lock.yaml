@@ -12,8 +12,8 @@ importers:
         specifier: ^8.0.2
         version: 8.0.2
       '@danor-lib/poseidon':
-        specifier: ^10.0.5
-        version: 10.0.5
+        specifier: ^10.0.6
+        version: 10.0.6
       dayjs:
         specifier: ^1.11.21
         version: 1.11.21
@@ -44,8 +44,8 @@ packages:
     resolution: {integrity: sha512-Dtpszi9C68qgetj1P7PBzAhqc6YLBKui8TYkm+/2f/FqIuMY1mERGXz5ys1hNS7qSWsZDaNza+MkN/F759fjKQ==}
     engines: {node: '>=26'}
 
-  '@danor-lib/poseidon@10.0.5':
-    resolution: {integrity: sha512-zmWtgtnf8Wd0uP8Ib9/CGHy8fB14wU4Azx8aJgC9wgtgBeQgD6G3QnXrXhB4nsXtkWbzNC/vVhLdw+lGF8fK/g==}
+  '@danor-lib/poseidon@10.0.6':
+    resolution: {integrity: sha512-/rA+fvLubmErbV40mbhjQHoaFnF97XSmeE+A4OK//8+cmwo0Hg7HJt3+x3ohDRBxQUCZ7JErM4cowdS7T43fWA==}
     engines: {node: '>=26'}
 
   '@eslint-community/eslint-utils@4.9.1':
@@ -483,7 +483,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@danor-lib/poseidon@10.0.5':
+  '@danor-lib/poseidon@10.0.6':
     dependencies:
       '@danor-lib/error': 2.0.1
       escape-string-regexp: 5.0.0
