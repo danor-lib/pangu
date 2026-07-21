@@ -92,7 +92,7 @@ The initialization configuration specifier is the core mechanism of `Pangu`. Its
 | Method | Source                            | Priority | Use case                                                 |
 | :----- | :-------------------------------- | :------- | :------------------------------------------------------- |
 | `spc`  | URL query of the import statement | High     | Each JS file explicitly declares its required components |
-| `env`  | Environment variable `NENV_PANGU` | Low      | Shared configuration across multiple entries or programs |
+| `env`  | Environment variable `DR_PANGU`   | Low      | Shared configuration across multiple entries or programs |
 
 ### Method 1: Inline Import Parameters (spc)
 
@@ -106,16 +106,16 @@ import { C, G } from '@danor-lib/pangu/index.js?config&log';
 import { C, G } from '@danor-lib/pangu?config&log';
 ```
 
-### Method 2: Environment Variable `NENV_PANGU`
+### Method 2: Environment Variable `DR_PANGU`
 
 Set the environment variable before starting the program:
 
 ```bash
 # Linux / macOS
-export NENV_PANGU="config&log"
+export DR_PANGU="config&log"
 
 # Windows (cmd)
-set NENV_PANGU=config&log
+set DR_PANGU=config&log
 
 node index.js
 ```
@@ -131,7 +131,7 @@ It can also be set at runtime via code (must be executed before importing `pangu
 
 ```javascript
 // index.env.js
-process.env.NENV_PANGU = 'dirn&pkg&config&log';
+process.env.DR_PANGU = 'dirn&pkg&config&log';
 
 // index.js
 import './index.env.js';
@@ -196,11 +196,11 @@ Sets and exports the working directory path. Most components treat this as the r
 
 #### Parameters
 
-| Parameter position   | Source            | Description                                                |
-| :------------------- | :---------------- | :--------------------------------------------------------- |
-| Positional param 1   | `dirn=path`       | Manually specify the working directory path                |
-| Environment variable | `NENV_PANGU_DIRN` | Specify via environment variable                           |
-| Fallback             | `process.cwd()`   | Use current working directory if none of the above are set |
+| Parameter position   | Source          | Description                                                |
+| :------------------- | :-------------- | :--------------------------------------------------------- |
+| Positional param 1   | `dirn=path`     | Manually specify the working directory path                |
+| Environment variable | `DR_PANGU_DIRN` | Specify via environment variable                           |
+| Fallback             | `process.cwd()` | Use current working directory if none of the above are set |
 
 #### Special Insertion Values
 
@@ -319,14 +319,14 @@ Loads [`@danor-lib/hades`](https://github.com/danor-lib/hades), which by default
 | `level`                  | Log level                             | /                              |
 | `dirn`                   | Log output directory                  | `{workingDirectory}/log`       |
 | `eol`                    | End‑of‑line character                 | /                              |
-| `templatetime`           | Timestamp template                    | /                              |
-| `sizefilelogmax`         | Maximum size of a single log file     | /                              |
-| `numberfilelogbackupmax` | Maximum number of backup log files    | /                              |
-| `willhighlight`          | Whether to enable highlighting        | /                              |
-| `willcolorfullevel`      | Whether to enable level colors        | /                              |
-| `willoutputinitinfo`     | Whether to output initialization info | /                              |
-| `willconsoleoutputerror` | Whether to output errors to console   | /                              |
-| `willinitimmediate`      | Whether to initialize immediately     | /                              |
+| `templateTime`           | Timestamp template                    | /                              |
+| `sizeFileLogMax`         | Maximum size of a single log file     | /                              |
+| `numberFileLogBackupMax` | Maximum number of backup log files    | /                              |
+| `willHighlight`          | Whether to enable highlighting        | /                              |
+| `willColorfulLevel`      | Whether to enable level colors        | /                              |
+| `willOutputInitInfo`     | Whether to output initialization info | /                              |
+| `willConsoleOutputError` | Whether to output errors to console   | /                              |
+| `willInitImmediate`      | Whether to initialize immediately     | /                              |
 
 > For full usage of Hades, please refer to the [@danor-lib/hades documentation](https://github.com/danor-lib/hades).
 
@@ -368,6 +368,22 @@ Performs basic Node.js process setup: sets the process title and catches unhandl
 
 - Sets `process.title` to `PKG.name` (from package.json)
 - Listens to the `unhandledRejection` event and logs unhandled asynchronous rejections
+
+#### Custom Texts
+
+The Chinese text output in logs can be overridden via the `DR_PANGU_TEXTS` environment variable in JSON format:
+
+```bash
+export DR_PANGU_TEXTS='{"process":"Process","unhandledRejection":"Unhandled Rejection","unhandledAsyncRejection":"Unhandled Async Rejection"}'
+```
+
+| Key                       | Default            | Description                                 |
+| :------------------------ | :----------------- | :------------------------------------------ |
+| `process`                 | `进程`             | Category label for process-related logs     |
+| `unhandledRejection`      | `未处理的拒绝`     | Log description for synchronous rejections  |
+| `unhandledAsyncRejection` | `未处理的异步拒绝` | Log description for asynchronous rejections |
+
+> If the environment variable is not set or JSON parsing fails, the defaults in the table above are used.
 
 #### Dependencies
 
@@ -568,8 +584,9 @@ import { C } from '@danor-lib/pangu/index.js?config&log';
 
 | Environment Variable | Description                                                          |
 | :------------------- | :------------------------------------------------------------------- |
-| `NENV_PANGU`         | Initialization configuration specifier (same format as import query) |
-| `NENV_PANGU_DIRN`    | Working directory (third‑priority source for the `dirn` component)   |
+| `DR_PANGU`           | Initialization configuration specifier (same format as import query) |
+| `DR_PANGU_DIRN`      | Working directory (third‑priority source for the `dirn` component)   |
+| `DR_PANGU_TEXTS`     | Custom log text for the `process` component (JSON format)            |
 
 ---
 

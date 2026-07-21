@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@danor-lib/hades':
-        specifier: ^8.0.2
-        version: 8.0.2
+        specifier: ^8.1.0
+        version: 8.1.0
       '@danor-lib/poseidon':
         specifier: ^10.0.6
         version: 10.0.6
@@ -40,8 +40,8 @@ packages:
     resolution: {integrity: sha512-NomP2ClDMfroL3YlWDHXV6eUDG1z1Gxd2GgbRpTncGgTKRlqq1dVzWvsjT1U6v5X0XeutlrJbM5Wz95UhCFMAA==}
     engines: {node: '>=26'}
 
-  '@danor-lib/hades@8.0.2':
-    resolution: {integrity: sha512-Dtpszi9C68qgetj1P7PBzAhqc6YLBKui8TYkm+/2f/FqIuMY1mERGXz5ys1hNS7qSWsZDaNza+MkN/F759fjKQ==}
+  '@danor-lib/hades@8.1.0':
+    resolution: {integrity: sha512-npnVduFlOmwxIbXkatISoJdGGSE9z5c7S6t/HMqCVMEgDBIJn8fDi7vnyMpyK+3PlTmdYQBQNnzDk4CElZ6qrw==}
     engines: {node: '>=26'}
 
   '@danor-lib/poseidon@10.0.6':
@@ -472,7 +472,7 @@ snapshots:
 
   '@danor-lib/error@2.0.1': {}
 
-  '@danor-lib/hades@8.0.2':
+  '@danor-lib/hades@8.1.0':
     dependencies:
       '@danor-lib/error': 2.0.1
       chalk: 5.6.2

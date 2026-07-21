@@ -6,7 +6,16 @@
 export const init = (launcher, environment, $pangu) => {
 	const { package: PKG, log = globalThis.console } = environment;
 
-	$pangu.texts.process = {
+
+	let textsEnv;
+	try {
+		textsEnv = process.env.DR_PANGU_TEXTS ? JSON.parse(process.env.DR_PANGU_TEXTS) : null;
+	}
+	catch {
+		textsEnv = null;
+	}
+
+	$pangu.texts.process = textsEnv != null ? textsEnv : {
 		'process': '进程',
 		'unhandledRejection': '未处理的拒绝',
 		'unhandledAsyncRejection': '未处理的异步拒绝',

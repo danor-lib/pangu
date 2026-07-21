@@ -32,15 +32,15 @@ export const init = (launcher, environment, $pangu) => {
 			),
 
 			eol: params.eol?.raw,
-			templateTime: params.templatetime?.raw,
-			sizeFileLogMax: params.sizefilelogmax?.raw,
-			numberFileLogBackupMax: params.numberfilelogbackupmax?.raw,
+			templateTime: params.templateTime?.raw,
+			sizeFileLogMax: params.sizeFileLogMax?.raw,
+			numberFileLogBackupMax: params.numberFileLogBackupMax?.raw,
 
-			willHighlight: parseEnvironmentFlag(params.willhighlight?.raw),
-			willColorfulLevel: parseEnvironmentFlag(params.willcolorfullevel?.raw),
-			willOutputInitInfo: parseEnvironmentFlag(params.willoutputinitinfo?.raw),
-			willConsoleOutputError: parseEnvironmentFlag(params.willconsoleoutputerror?.raw),
-			willInitImmediate: parseEnvironmentFlag(params.willinitimmediate?.raw),
+			willHighlight: parseEnvironmentFlag(params.willHighlight?.raw),
+			willColorfulLevel: parseEnvironmentFlag(params.willColorfulLevel?.raw),
+			willOutputInitInfo: parseEnvironmentFlag(params.willOutputInitInfo?.raw),
+			willConsoleOutputError: parseEnvironmentFlag(params.willConsoleOutputError?.raw),
+			willInitImmediate: parseEnvironmentFlag(params.willInitImmediate?.raw),
 		}
 	));
 

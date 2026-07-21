@@ -92,7 +92,7 @@ console.log(PKG.name);
 | 方式  | 来源                    | 优先级 | 适用场景                     |
 | :---- | :---------------------- | :----- | :--------------------------- |
 | `spc` | import 语句的 URL query | 高     | 每个 JS 文件明确声明所需组件 |
-| `env` | 环境变量 `NENV_PANGU`   | 低     | 多个入口或程序之间的共有配置 |
+| `env` | 环境变量 `DR_PANGU`     | 低     | 多个入口或程序之间的共有配置 |
 
 ### 方式一：import 内联参数（spc）
 
@@ -106,16 +106,16 @@ import { C, G } from '@danor-lib/pangu/index.js?config&log';
 import { C, G } from '@danor-lib/pangu?config&log';
 ```
 
-### 方式二：环境变量 `NENV_PANGU`
+### 方式二：环境变量 `DR_PANGU`
 
 在启动程序前设置环境变量：
 
 ```bash
 # Linux / macOS
-export NENV_PANGU="config&log"
+export DR_PANGU="config&log"
 
 # Windows (cmd)
-set NENV_PANGU=config&log
+set DR_PANGU=config&log
 
 node index.js
 ```
@@ -131,7 +131,7 @@ console.log(C); // Poseidon 实例已就绪
 
 ```javascript
 // index.env.js
-process.env.NENV_PANGU = 'dirn&pkg&config&log';
+process.env.DR_PANGU = 'dirn&pkg&config&log';
 
 // index.js
 import './index.env.js';
@@ -196,11 +196,11 @@ graph TD
 
 #### 参数
 
-| 参数位置   | 来源              | 说明                           |
-| :--------- | :---------------- | :----------------------------- |
-| 默认参数 1 | `dirn=路径`       | 手动指定工作目录路径           |
-| 环境变量   | `NENV_PANGU_DIRN` | 通过环境变量指定               |
-| 回退值     | `process.cwd()`   | 以上均未设置时使用当前工作目录 |
+| 参数位置   | 来源            | 说明                           |
+| :--------- | :-------------- | :----------------------------- |
+| 默认参数 1 | `dirn=路径`     | 手动指定工作目录路径           |
+| 环境变量   | `DR_PANGU_DIRN` | 通过环境变量指定               |
+| 回退值     | `process.cwd()` | 以上均未设置时使用当前工作目录 |
 
 #### 特殊插入值
 
@@ -319,14 +319,14 @@ import { C } from '@danor-lib/pangu/index.js?config=db,server';
 | `level`                  | 日志级别             | /                                       |
 | `dirn`                   | 日志输出目录         | `{工作目录}/log`                        |
 | `eol`                    | 行尾符               | /                                       |
-| `templatetime`           | 时间戳模板           | /                                       |
-| `sizefilelogmax`         | 单个日志文件最大大小 | /                                       |
-| `numberfilelogbackupmax` | 日志备份文件最大数量 | /                                       |
-| `willhighlight`          | 是否启用高亮         | /                                       |
-| `willcolorfullevel`      | 是否启用级别颜色     | /                                       |
-| `willoutputinitinfo`     | 是否输出初始化信息   | /                                       |
-| `willconsoleoutputerror` | 是否在控制台输出错误 | /                                       |
-| `willinitimmediate`      | 是否立即初始化       | /                                       |
+| `templateTime`           | 时间戳模板           | /                                       |
+| `sizeFileLogMax`         | 单个日志文件最大大小 | /                                       |
+| `numberFileLogBackupMax` | 日志备份文件最大数量 | /                                       |
+| `willHighlight`          | 是否启用高亮         | /                                       |
+| `willColorfulLevel`      | 是否启用级别颜色     | /                                       |
+| `willOutputInitInfo`     | 是否输出初始化信息   | /                                       |
+| `willConsoleOutputError` | 是否在控制台输出错误 | /                                       |
+| `willInitImmediate`      | 是否立即初始化       | /                                       |
 
 > 关于 Hades 的完整用法，请参阅 [@danor-lib/hades 文档](https://github.com/danor-lib/hades)。
 
@@ -368,6 +368,22 @@ import { G } from '@danor-lib/pangu/index.js?log.name=myapp&log.level=debug';
 
 - 将 `process.title` 设置为 `PKG.name`（package.json 的 name 字段）
 - 监听 `unhandledRejection` 事件，通过日志记录未处理的异步拒绝
+
+#### 自定义文本
+
+日志中输出的中文文本可通过环境变量 `DR_PANGU_TEXTS` 以 JSON 格式覆盖：
+
+```bash
+export DR_PANGU_TEXTS='{"process":"进程","unhandledRejection":"未处理的拒绝","unhandledAsyncRejection":"未处理的异步拒绝"}'
+```
+
+| 键                        | 默认值             | 说明                        |
+| :------------------------ | :----------------- | :-------------------------- |
+| `process`                 | `进程`             | 进程相关日志的分类标签      |
+| `unhandledRejection`      | `未处理的拒绝`     | 同步 Promise 拒绝的日志描述 |
+| `unhandledAsyncRejection` | `未处理的异步拒绝` | 异步 Promise 拒绝的日志描述 |
+
+> 若环境变量未设置或 JSON 解析失败，则使用上表中的默认值。
 
 #### 依赖
 
@@ -563,10 +579,11 @@ import { C } from '@danor-lib/pangu/index.js?config&log';
 
 ## 环境变量参考
 
-| 环境变量          | 说明                                       |
-| :---------------- | :----------------------------------------- |
-| `NENV_PANGU`      | 初始化配置说明符（与 import query 同格式） |
-| `NENV_PANGU_DIRN` | 工作目录（`dirn` 组件的第三优先级来源）    |
+| 环境变量         | 说明                                       |
+| :--------------- | :----------------------------------------- |
+| `DR_PANGU`       | 初始化配置说明符（与 import query 同格式） |
+| `DR_PANGU_DIRN`  | 工作目录（`dirn` 组件的第三优先级来源）    |
+| `DR_PANGU_TEXTS` | 自定义 `process` 组件日志文本（JSON 格式） |
 
 ---
 

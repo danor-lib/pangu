@@ -58,7 +58,13 @@ export interface PanguGlobal {
 	utils$name: Record<string, any>;
 	utilsExport: ExportUtils;
 	promisesWait: Promise<any>[];
-	texts: Record<string, any>;
+	texts: {
+		process: {
+			process: string;
+			unhandledAsyncRejection: string;
+			unhandledRejection: string;
+		};
+	};
 }
 
 

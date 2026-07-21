@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v6.1.0 - 2026.07.21 10
+* refactor!: rename environment variable `DR_PANGU` from `NENV_PANGU`
+* refactor!: rename environment variable `DR_PANGU_DIRN` from `NENV_PANGU_DIRN`
+* feat: support environment variable `DR_PANGU_TEXTS` as fallback `texts` value in `process` util. This allows initialization at an earlier time.
+* refactor!: revert the lowercasing of all named parameters of the log component. URLSearchParams is case-insensitive
+
+
 ## v6.0.3 - 2026.07.20 14
 * regular: bump up dependencies
 

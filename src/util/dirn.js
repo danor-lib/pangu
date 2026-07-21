@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 export const init = (launcher, environment, $pangu) => {
 	let dirn =
 		launcher.params.default?.[0] ||
-		process.env.NENV_PANGU_DIRN ||
+		process.env.DR_PANGU_DIRN ||
 		process.cwd();
 
 	const entryRaw = process.argv[1];

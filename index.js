@@ -114,7 +114,7 @@ const parseParamString = string => {
 	}
 };
 
-parseParamString(`https://world.peace?${process.env.NENV_PANGU ?? ''}`);
+parseParamString(`https://world.peace?${process.env.DR_PANGU ?? ''}`);
 parseParamString(import.meta.url);
 
 
