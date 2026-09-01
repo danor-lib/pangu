@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v6.2.0 - 2026.09.01 17
+* regular: bump up dependencies
+  * bump up `@danor-lib/hades` to `8.2.0`
+
+
 ## v6.1.0 - 2026.07.21 10
 * refactor!: rename environment variable `DR_PANGU` from `NENV_PANGU`
 * refactor!: rename environment variable `DR_PANGU_DIRN` from `NENV_PANGU_DIRN`

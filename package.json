@@ -1,6 +1,6 @@
 {
 	"name": "@danor-lib/pangu",
-	"version": "6.1.0",
+	"version": "6.2.0",
 	"description": "The cornerstone library for unified initialising of common usage",
 	"author": "DanoR",
 	"license": "MIT",
@@ -26,15 +26,15 @@
 	"main": "./index.js",
 	"types": "./types/index.d.ts",
 	"dependencies": {
-		"@danor-lib/hades": "^8.1.0",
+		"@danor-lib/hades": "8.2.0",
 		"@danor-lib/poseidon": "^10.0.6",
-		"dayjs": "^1.11.21"
+		"dayjs": "^1.11.23"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@stylistic/eslint-plugin": "^5.10.0",
-		"@types/node": "^26.1.1",
-		"eslint": "^10.7.0",
-		"globals": "^17.7.0"
+		"@types/node": "^26.4.0",
+		"eslint": "^10.9.1",
+		"globals": "^17.11.0"
 	}
 }

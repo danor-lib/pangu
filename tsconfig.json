@@ -15,7 +15,7 @@
 	"include": [
 		"**/*.js",
 		"types.ts",
-		"global.d.ts",
+		"global.ts",
 	],
 	"exclude": [
 		"eslint.config.js",
