@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@danor-lib/hades':
-        specifier: 8.2.0
-        version: 8.2.0
+        specifier: 8.3.0
+        version: 8.3.0
       '@danor-lib/poseidon':
         specifier: ^10.0.6
         version: 10.0.6
@@ -44,8 +44,8 @@ packages:
     resolution: {integrity: sha512-696KQROmPqlvGaanyPxHTE1ivCc7v9xg0TqO0ZC4/uT1vJuZsUbInoG00dHmWmJoTvJTY2fr6nFlBu6XQ3OFrQ==}
     engines: {node: '>=26'}
 
-  '@danor-lib/hades@8.2.0':
-    resolution: {integrity: sha512-nbZdHc9aSg/F5qHE3T2EPGO/kxAIddoOJN0GVZVh8eqwdMUCAwug5EcXzUaPsA/ig3QMb7e8zoJkM8F0jChZ0A==}
+  '@danor-lib/hades@8.3.0':
+    resolution: {integrity: sha512-zPg4k4SJ+ssCzVCYU1gtuQi0kGd0YwA6sc9OtLJRQQAeA/I+zLrfItC52pucw0Iq2be/6hdoQ4wIq879NmZwPw==}
     engines: {node: '>=26'}
 
   '@danor-lib/poseidon@10.0.6':
@@ -129,8 +129,8 @@ packages:
   '@types/node@26.4.0':
     resolution: {integrity: sha512-faiGnoIrLH/V8cibOMEAZ8pMw6oXqSukl29ra4mN8GdaB2ZewzeaLj+INpV5N+Z1eKWzY+IzaIZH2EIR6YZRNQ==}
 
-  '@typescript-eslint/types@8.68.0':
-    resolution: {integrity: sha512-9RnpsGJjrAllCMefGVVsImJM24YurhC0Q1h4UbvivtvOqXmR/vEJge2OoE++z9m6hyg8T1Q8t5SNT6tHSbrxcg==}
+  '@typescript-eslint/types@8.69.0':
+    resolution: {integrity: sha512-K3VrubUPhlo9VDBS6QdI8YB5j7ClpqLRdefcz6PFrhnwicehBweqQ9Evhl4l+FYz0HdDmMqIiSX0aldGRYtDCA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   acorn-jsx@5.3.2:
@@ -478,7 +478,7 @@ snapshots:
 
   '@danor-lib/error@3.0.0': {}
 
-  '@danor-lib/hades@8.2.0':
+  '@danor-lib/hades@8.3.0':
     dependencies:
       '@danor-lib/error': 3.0.0
       chalk: 6.0.0
@@ -547,7 +547,7 @@ snapshots:
   '@stylistic/eslint-plugin@5.10.0(eslint@10.9.1)':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.9.1)
-      '@typescript-eslint/types': 8.68.0
+      '@typescript-eslint/types': 8.69.0
       eslint: 10.9.1
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
@@ -564,7 +564,7 @@ snapshots:
     dependencies:
       undici-types: 8.3.0
 
-  '@typescript-eslint/types@8.68.0': {}
+  '@typescript-eslint/types@8.69.0': {}
 
   acorn-jsx@5.3.2(acorn@8.18.0):
     dependencies:

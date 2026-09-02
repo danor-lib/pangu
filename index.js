@@ -199,7 +199,7 @@ const initUtil = async (launcher, environment) => {
 	else if(launcher.util == 'hades') {
 		const module = await import('@danor-lib/hades');
 
-		util = environment.$imported[launcher.util] ? environment.Hades : (environment.Hades = module.default);
+		util = environment.$imported[launcher.util] ? environment.Hades : (environment.Hades = module.Hades);
 
 		utilsSub.Melinoe = environment.$imported[launcher.util] ? environment.Melinoe : (environment.Melinoe = module.Melinoe);
 		utilsSub.Zagreus = environment.$imported[launcher.util] ? environment.Zagreus : (environment.Zagreus = module.Zagreus);
