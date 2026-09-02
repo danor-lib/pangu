@@ -1,7 +1,17 @@
 # CHANGELOG
 
+## v6.3.2 - 2026.09.02 17
+* regular: bump up dependencies
+  * bump up `@danor-lib/hades` to `8.3.2` (fixed version)
+
+
+## v6.3.1 - 2026.09.02 16
+* regular: bump up dependencies
+  * bump up `@danor-lib/hades` to `8.3.1` (fixed version)
+
+
 ## v6.3.0 - 2026.09.02 15
-* fix: fix the issue that Hades is not correctly exported due to changes in the exports of `@danor-lib/hades`
+* fix: fix the issue that `Hades` is not correctly exported due to changes in the exports of `@danor-lib/hades`
 * regular: bump up dependencies
   * bump up `@danor-lib/hades` to `8.3.0`
 
